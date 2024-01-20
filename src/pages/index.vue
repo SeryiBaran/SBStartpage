@@ -51,10 +51,10 @@ function handleSubmit(event: Event) {
 </script>
 
 <template>
-  <div class="mt-24vh max-w-md w-full flex flex-col gap-6">
+  <div class="mt-24vh max-w-[48rem] w-full flex flex-col gap-6">
     <a class="i-carbon-campsite link_without_effects mx-auto text-8xl" href="https://github.com/antfu/vitesse-lite" />
     <form class="w-full" @submit="handleSubmit">
-      <input v-model="searchText" type="text" class="input max-w-md w-full" placeholder="Write a query...">
+      <input v-model="searchText" autofocus type="text" class="input w-full" placeholder="Write a query...">
     </form>
     <h2 class="mt-10 text-xl">
       Hacker News:
@@ -63,8 +63,8 @@ function handleSubmit(event: Event) {
       <p>News list is loading...</p>
     </template>
     <template v-else-if="data">
-      <ul class="w-fu.4 max-w-md text-3.2 lh-3.6">
-        <li v-for="(newsItemQuery, index) in newsItemsQueries" :key="index" class="mb-4 w-full flex gap-2">
+      <ul class="">
+        <li v-for="(newsItemQuery, index) in newsItemsQueries" :key="index" class="mb-4 w-full flex gap-4">
           <template v-if="newsItemQuery.isPending">
             <p>News data is loading...</p>
           </template>

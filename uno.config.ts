@@ -10,7 +10,9 @@ import { colors } from 'unocss/preset-mini'
 
 export default defineConfig({
   presets: [
-    presetUno(),
+    presetUno({
+      dark: 'media',
+    }),
     presetIcons({
       scale: 1.2,
       warn: true,

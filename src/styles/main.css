@@ -6,12 +6,8 @@ body,
   padding: 0;
 }
 
-body {
-  @apply font-mono bg-slate-50 text-neutral-800 dark:(bg-zinc-800 text-neutral-200) font-mono break-words min-h-screen;
-}
-
 .input {
-  @apply border-2 rounded-full p-3 px-5 outline-none transition-colors hover:border-blue-200 focus:border-blue-500 dark:bg-neutral-700;
+  @apply border-2 rounded-full p-3 px-5 outline-none transition-colors border-neutral-200 dark:border-transparent dark:border-transparent hover:border-blue-300 dark:hover:border-neutral-500 focus:border-blue-500 dark:bg-neutral-700;
 }
 
 a:visited {

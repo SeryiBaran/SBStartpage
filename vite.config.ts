@@ -9,6 +9,7 @@ import VueRouter from 'unplugin-vue-router/vite'
 import { VueRouterAutoImports } from 'unplugin-vue-router'
 
 export default defineConfig({
+  base: './', // because runs in browser via file protocol
   resolve: {
     alias: {
       '~/': `${path.resolve(__dirname, 'src')}/`,

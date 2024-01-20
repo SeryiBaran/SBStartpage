@@ -1,0 +1,9 @@
+{
+  "name": "Change new tab",
+  "description": "A window to anywhere in the world, just a tab away.",
+  "version": "1.0.0",
+  "manifest_version": 3,
+  "chrome_url_overrides": {
+    "newtab": "./redirect.html"
+  }
+}
