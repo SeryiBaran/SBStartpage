@@ -1,0 +1,29 @@
+html,
+body,
+#app {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  @apply font-mono bg-slate-50 text-neutral-800 dark:(bg-zinc-800 text-neutral-200) font-mono break-words min-h-screen;
+}
+
+.input {
+  @apply border-2 rounded-full p-3 px-5 outline-none transition-colors hover:border-blue-200 focus:border-blue-500 dark:bg-neutral-700;
+}
+
+a:visited {
+  color: #a048ec;
+}
+
+html body a,
+.link_without_visited_color:visited {
+  @apply text-primary-6 hover:text-primary-4 active:text-primary-7
+  dark:(text-primary-5 hover:text-primary-3 active:text-primary-6);
+}
+
+.link_without_effects {
+  @apply active:text-inherit hover:text-inherit focus:text-inherit visited:text-inherit text-inherit no-underline focus:outline-none;
+}
