@@ -52,7 +52,7 @@ function handleSubmit(event: Event) {
   if (urlText.value.trim().length) {
     url = urlText.value.trim()
 
-    if (!(/^\*+\:\/\//gi.test(urlText.value.trim())))
+    if (!(/:\/\//gi.test(urlText.value.trim())))
       url = `http://${urlText.value.trim()}`
   }
   else {
