@@ -1,6 +1,6 @@
 {
-  "name": "Change new tab",
-  "description": "A window to anywhere in the world, just a tab away.",
+  "name": "Change new tab to SBStartpage",
+  "description": "Change new tab to SBStartpage",
   "version": "1.0.0",
   "manifest_version": 3,
   "chrome_url_overrides": {
