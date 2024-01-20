@@ -12,7 +12,7 @@ defineOptions({
   name: 'IndexPage',
 })
 
-const newsNumber = 10
+const newsNumber = 16
 
 const queryClient = useQueryClient()
 
@@ -41,22 +41,37 @@ const newsItemsQueries = useQueries({ queries: newsItemsQueriesComputed })
 
 const newsItemsQueriesIsPending = computed(() => newsItemsQueries.value.map(query => query.isPending).filter(Boolean).length)
 
+const urlText = ref('')
 const searchText = ref('')
 
 function handleSubmit(event: Event) {
   event.preventDefault()
 
-  window.location.href = `https://www.google.com/search?q=${searchText.value}`
+  let url
+
+  if (urlText.value.trim().length) {
+    url = urlText.value.trim()
+
+    if (!(/^\*+\:\/\//gi.test(urlText.value.trim())))
+      url = `http://${urlText.value.trim()}`
+  }
+  else {
+    url = `https://www.google.com/search?q=${searchText.value}`
+  }
+
+  window.location.href = url
 }
 </script>
 
 <template>
-  <div class="mt-24vh max-w-[48rem] w-full flex flex-col gap-6">
-    <a class="i-carbon-campsite link_without_effects mx-auto text-8xl" href="https://github.com/antfu/vitesse-lite" />
+  <div class="mt-16vh max-w-[48rem] w-full flex flex-col gap-6">
+    <a class="link_without_effects i-carbon-campsite mx-auto text-8xl" href="https://github.com/antfu/vitesse-lite" />
     <form class="w-full" @submit="handleSubmit">
-      <input v-model="searchText" autofocus type="text" class="input w-full" placeholder="Write a query...">
+      <input v-model="urlText" autofocus type="text" class="input w-full" placeholder="Enter an URL...">
+      <input v-model="searchText" type="text" class="input mt-4 w-full" placeholder="...or write a query.">
+      <button type="submit" class="hidden" />
     </form>
-    <h2 class="mt-10 text-xl">
+    <h2 class="mt-6 text-xl">
       Hacker News:
     </h2>
     <template v-if="isPending || newsItemsQueriesIsPending">
