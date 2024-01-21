@@ -23,6 +23,7 @@
   },
   "dependencies": {
     "@nanostores/persistent": "^0.9.1",
+    "@unocss/reset": "^0.58.3",
     "dayjs": "^1.11.10",
     "ky": "^1.2.0",
     "nanostores": "^0.9.5"
