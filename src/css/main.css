@@ -1,0 +1,56 @@
+html,
+body,
+#app {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+}
+
+.input {
+  @apply outline-none border-2 rounded-full p-3 px-5 transition-colors border-neutral-200 dark:border-transparent hover:border-blue-300 dark:hover:border-neutral-500 focus:border-blue-500 dark:bg-neutral-700;
+}
+
+a:visited {
+  color: #a048ec;
+}
+
+html body a,
+.link_without_visited_color:visited {
+  @apply text-primary-6 hover:text-primary-4 active:text-primary-7
+  dark:(text-primary-5 hover:text-primary-3 active:text-primary-6);
+}
+
+.link_without_effects {
+  @apply active:text-inherit hover:text-inherit focus:text-inherit visited:text-inherit text-inherit no-underline focus:outline-none;
+}
+
+.hidden {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  margin: -1px;
+  border: 0;
+  padding: 0;
+  clip: rect(0 0 0 0);
+  overflow: hidden;
+}
+
+details {
+  cursor: pointer;
+}
+
+table {
+  @apply overflow-auto block;
+}
+
+table :where(td, th) {
+  @apply px-2 py-1 align-baseline;
+}
+
+table th {
+  @apply text-start;
+}
+
+.newsTableScoreColumn {
+  @apply text-end;
+}

@@ -1,6 +1,7 @@
 export interface NewsItem {
-  title: string
   id: number
-  url: string
+  score: number
   time: number
+  title: string
+  url: string
 }

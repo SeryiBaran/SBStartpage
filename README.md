@@ -1,6 +1,6 @@
 # SBStartpage
 
-![Screenshot](./readme_assets/image-1.png)
+![Screenshot](./readme_assets/image_1.png)
 
 My start page.
 
@@ -10,4 +10,4 @@ My start page.
 2. Serve `dist` directory with any server (for example, [miniserve](https://github.com/svenstaro/miniserve))
 3. Install extension from `extension` folder:
 
-   ![Screenshot](./readme_assets/image-2.png)
+   ![Screenshot](./readme_assets/image_2.png)

@@ -2,28 +2,92 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
+
+    <!-- https://realfavicongenerator.net -->
+    <link
+      rel="apple-touch-icon"
+      sizes="180x180"
+      href="/favicons/apple-touch-icon.png"
+    />
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="32x32"
+      href="/favicons/favicon-32x32.png"
+    />
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="16x16"
+      href="/favicons/favicon-16x16.png"
+    />
+    <link rel="manifest" href="/favicons/site.webmanifest" />
+    <link
+      rel="mask-icon"
+      href="/favicons/safari-pinned-tab.svg"
+      color="#5bbad5"
+    />
+    <link rel="shortcut icon" href="/favicons/favicon.ico" />
+    <meta name="msapplication-TileColor" content="#2d89ef" />
+    <meta name="msapplication-config" content="/favicons/browserconfig.xml" />
+    <meta name="theme-color" content="#ffffff" />
+
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
     <title>SBStartpage</title>
-    <meta name="description" content="Opinionated Vite Starter Template" />
   </head>
   <body
     class="font-mono bg-slate-50 text-neutral-800 dark:(bg-zinc-800 text-neutral-200) font-mono break-words min-h-screen"
   >
-    <div id="app"></div>
+    <div id="app">
+      <main
+        class="max-w-[48rem] w-full mx-auto min-h-screen flex flex-col p-4 gap-6"
+      >
+        <section class="min-h-screen flex flex-col gap-6">
+          <div class="mt-10vh md:mt-26vh flex flex-col gap-6">
+            <a
+              class="link_without_effects i-carbon-campsite mx-auto block text-8xl"
+              href="https://github.com/antfu/vitesse-lite"
+            ></a>
+            <p class="text-center text-neutral-400 dark:text-neutral-500">
+              Enter a query, or URL what starts with "/":
+            </p>
+            <form class="w-full" id="searchForm">
+              <input
+                id="searchBox"
+                autofocus
+                type="text"
+                class="input block max-w-xl mx-auto w-full"
+                placeholder="Placeholder ¯\_(ツ)_/¯"
+              />
+              <button type="submit" class="hidden"></button>
+            </form>
+          </div>
+        </section>
+
+        <section>
+          <h2 class="text-xl inline-flex flex-wrap gap-2 items-center">
+            Hacker News
+            <span
+              id="newsLoader"
+              class="i-tabler-reload h-6 w-6 inline-block animate-spin hidden"
+            ></span>
+          </h2>
+          <table id="newsTable">
+            <thead>
+              <tr>
+                <th>Date</th>
+                <th>Title & Link</th>
+                <th>Score</th>
+              </tr>
+            </thead>
+            <tbody id="newsTableBody"></tbody>
+          </table>
+        </section>
+      </main>
+    </div>
     <noscript>
       <div>Please enable JavaScript to use this application.</div>
     </noscript>
-    <script>
-      ;(function () {
-        const prefersDark =
-          window.matchMedia &&
-          window.matchMedia('(prefers-color-scheme: dark)').matches
-        const setting = localStorage.getItem('color-schema') || 'auto'
-        if (setting === 'dark' || (prefersDark && setting !== 'light'))
-          document.documentElement.classList.toggle('dark', true)
-      })()
-    </script>
     <script type="module" src="/src/main.ts"></script>
   </body>
 </html>
