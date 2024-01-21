@@ -25,7 +25,7 @@ function fetchNewsItemById(id: NewsItem['id']) {
 }
 
 // topNewsIDsRequest = { isPending, isError, data, error }
-const { isPending, data } = useQuery({
+const { data, isFetching } = useQuery({
   queryKey: ['newsIDs'],
   queryFn: fetchNewsIDs,
 })
@@ -73,13 +73,10 @@ function handleSubmit(event: Event) {
         <button type="submit" class="hidden" />
       </form>
       <h2 class="mt-6 text-xl">
-        Hacker News:
+        Hacker News: <span v-if="isFetching || newsItemsQueriesIsPending" class="text-sm opacity-50">News list is updating...</span>
       </h2>
-      <template v-if="isPending || newsItemsQueriesIsPending">
-        <p>News list is loading...</p>
-      </template>
-      <template v-else-if="data">
-        <ul class="">
+      <template v-if="!newsItemsQueriesIsPending && data">
+        <ul>
           <li v-for="(newsItemQuery, index) in newsItemsQueries" :key="index" class="mb-4 w-full flex gap-4">
             <template v-if="newsItemQuery.isPending">
               <p>News data is loading...</p>
